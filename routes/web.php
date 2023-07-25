@@ -22,13 +22,17 @@ Route::get('/', function () {
 Route::get('/login', fn()=> view('.login'))->name('.login');
 Route::get('/regist', fn()=> view('.regist'))->name('.regist');
 
-// Home = petshop
-Route::get('/user/home', fn()=> view('users.home.food.index'))->name('users.food.index');
-Route::get('/user/drug', fn()=> view('users.home.drug.index'))->name('users.drug.index');
-Route::get('/user/accessories', fn()=> view('users.home.accessories.index'))->name('users.accessories.index');
 
-// Grooming
-Route::get('/user/grooming', fn()=> view('users.grooming.index'))->name('users.grooming.index');
+// Home
+Route::get('/user/home', fn()=> view('users.home.chicken.index'))->name('users.chicken.index');
+Route::get('/user/catering/cow', fn()=> view('users.home.cow.index'))->name('users.cow.index');
+
+// frozen
+Route::get('/user/frozen/risol', fn()=> view('users.frozen.risol.index'))->name('users.frozen.risol.index');
+Route::get('/user/frozen/sosis', fn()=> view('users.frozen.sosis.index'))->name('users.frozen.sosis.index');
+
+
+
 
 //inbox
 Route::get('/user/inbox', fn()=> view('users.inbox.index'))->name('users.inbox.index');

@@ -8,45 +8,35 @@
   @include('components.navbar')
   <section id="home">
     <div class="container">
-      @include('components.nav_food')
+      @include('components.nav_catering')
       <div class="row">
-        <div class="col-md-3 col-6 p-0">
+        <div class="col-md-3 col-6 p-0 box">
           <a href="{{ route('users.etalase.index') }}">
-            <div class="m-1 shadow-sm rounded-3">
+            <div class="m-1 shadow-sm rounded-4 card">
               <div class="text-center">
-                <img src="{{ asset('/images/produk1.png') }}" alt="img" height="200px" width="100%" />
+                <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="400px" width="100%" class="rounded-top-4"/>
               </div>
-              <div class="py-3 px-2">
-                <h5 class="txt-merah">Whiskas 80gr</h5>
-                <p class="m-0 fw-bold fs-5">Rp. 8.000,-</p>
-                <p class="m-0">Rp. 10.000</p>
-                <div class="text-end">
-                  <p class="bg-orange d-inline px-2 py-1 rounded-4 fw-bold">10%</p>
-                </div>
+              <div class="py-3 px-2 text-center">
+                <h4 class="m-0 fw-bold">Ayam Pop</h4>
               </div>
             </div>
           </a>
         </div>
-        <div class="col-md-3 col-6 p-0">
+        <div class="col-md-3 col-6 p-0 box">
           <a href="{{ route('users.etalase.index') }}">
-            <div class="m-1 shadow-sm rounded-3">
+            <div class="m-1 shadow-sm rounded-4 card">
               <div class="text-center">
-                <img src="{{ asset('/images/produk2.png') }}" alt="img" height="200px" width="100%" />
+                <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="400px" width="100%" class="rounded-top-4"/>
               </div>
-              <div class="py-3 px-2">
-                <h5 class="txt-merah">Whiskas 80gr</h5>
-                <p class="m-0 fw-bold fs-5">Rp. 8.000,-</p>
-                <p class="m-0">Rp. 10.000</p>
-                <div class="text-end">
-                  <p class="bg-orange d-inline px-2 py-1 rounded-4 fw-bold">10%</p>
-                </div>
+              <div class="py-3 px-2 text-center">
+                <h4 class="m-0 fw-bold">Ayam Pop</h4>
               </div>
             </div>
           </a>
         </div>
       </div>
       <div>
-        <div class="row" style="margin-top: 94px">
+        <div class="row" style="margin-top: 115px">
           <div class="col-md-12"></div>
         </div>
       </div>
@@ -69,17 +59,14 @@
                 <div class="row border py-3 my-1">
                   <div class="col-4">
                     <div>
-                      <img src="{{ asset('/images/produk1.png') }}" alt="img" height="80px" width="100%" />
+                      <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="80px" width="100%" />
                     </div>
                   </div>
                   <div class="col-8">
                     <div class="container h-100">
-                      <div class="row align-items-end h-100">
-                        <div class="col-12 txt-merah fw-bold fs-6">
-                          <p>Whiskas 80gr</p>
-                        </div>
-                        <div class="col-12 fw-bold small">
-                          <p>Rp.8.000</p>
+                      <div class="row align-items-center h-100">
+                        <div class="col-12 fw-bold fs-6">
+                          <h5>Ayam Pop</h5>
                         </div>
                       </div>
                     </div>

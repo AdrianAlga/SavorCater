@@ -21,11 +21,11 @@
                 <p style="color: red; font-style: italic;" class="text-center">Username / Password Salah!</p>
                 <form action="" method="post">
                   <div class="user-box">
-                    <input required="" name="username" type="text" />
+                    <input required="" name="username" type="text" maxlength="30"/>
                     <label>Username</label>
                   </div>
                   <div class="user-box">
-                    <input required="" name="password" type="password" />
+                    <input required="" name="password" type="password" maxlength="6"/>
                     <label>Password</label>
                   </div>
                   <button type="submit" name="login">

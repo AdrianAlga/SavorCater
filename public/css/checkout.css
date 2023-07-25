@@ -6,6 +6,16 @@
     text-indent: 4em;
 }
 
+/* table */
+th {
+    background: transparent !important;
+}
+table {
+    border-collapse: collapse !important;
+    /* border: none !important; */
+
+}
+
 /* Jumlah Checkout */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

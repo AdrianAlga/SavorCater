@@ -16,18 +16,18 @@
     </div>
     <div class="row shadow-sm mx-4 rounded-3 mb-3">
       <div class="col-6 text-center px-0">
-        <a href="{{ route('users.food.index') }}">
+        <a href="{{ route('users.chicken.index') }}">
           <div class="rounded-3 bg-orange h-100 w-100 py-3">
-            <img src="{{ asset('/images/icon.png') }}" alt="icon" height="30px" />
-            <span class="fw-bold">Petshop</span>
+            <img src="{{ asset('/images/catering.png') }}" alt="icon" height="30px" />
+            <span class="fw-bold">Catering</span>
           </div>
         </a>
       </div>
       <div class="col-6 text-center px-0">
-        <a href="{{ route('users.grooming.index') }}">
+        <a href="{{ route('users.frozen.risol.index') }}">
           <div class="rounded-3 h-100 w-100 pt-3">
-            <img src="{{ asset('/images/icon2.png') }}" alt="icon" height="30px" />
-            <span class="fw-bold">Grooming</span>
+            <img src="{{ asset('/images/frozen-food.png') }}" alt="icon" height="30px" />
+            <span class="fw-bold">Frozen</span>
           </div>
         </a>
       </div>
@@ -40,40 +40,37 @@
               aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1"
               aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="4000">
-              <img src="{{ asset('/images/slide1.png') }}" class="d-block w-100" alt="img" height="200px" />
+              <img src="{{ asset('/images/slide1.jpeg') }}" class="d-block w-100" alt="img" height="300px" />
             </div>
             <div class="carousel-item" data-bs-interval="4000">
-              <img src="{{ asset('/images/slide2.png') }}" class="d-block w-100" alt="img" height="200px" />
+              <img src="{{ asset('/images/slide2.jpeg') }}" class="d-block w-100" alt="img" height="300px" />
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+              <img src="{{ asset('/images/slide3.jpeg') }}" class="d-block w-100" alt="img" height="300px" />
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row text-center font-txt text-white" style="font-size: 13px">
-      <div class="col-4 my-3 px-1">
-        <a href="{{ route('users.food.index') }}">
+      <div class="col-6 my-3 px-1">
+        <a href="{{ route('users.chicken.index') }}">
           <div class="bg-white shadow-sm py-2 rounded-3">
-            <img src="{{ asset('/images/pet-food.png') }}" alt="img" height="25px" />
-            <span class="txt-abu">Makanan</span>
+            <img src="{{ asset('/images/chicken-leg.png') }}" alt="img" height="25px" />
+            <span class="text-abu">Ayam</span>
           </div>
         </a>
       </div>
-      <div class="col-4 my-3 px-1">
-        <a href="{{ route('users.drug.index') }}">
+      <div class="col-6 my-3 px-1">
+        <a href="{{ route('users.cow.index') }}">
           <div class="bg-white shadow-sm py-2 rounded-3">
-            <img src="{{ asset('/images/pet-obat.png') }}" alt="img" height="25px" />
-            <span class="txt-abu">Obat</span>
-          </div>
-        </a>
-      </div>
-      <div class="col-4 my-3 px-1">
-        <a href="{{ route('users.accessories.index') }}">
-          <div class="bg-white shadow-sm py-2 rounded-3 bg-orange">
-            <img src="{{ asset('/images/pet-collar.png') }}" alt="img" height="25px" />
-            <span class="text-white">Aksesoris</span>
+            <img src="{{ asset('/images/steak.png') }}" alt="img" height="25px" />
+            <span class="txt-abu">Sapi</span>
           </div>
         </a>
       </div>

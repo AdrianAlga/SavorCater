@@ -25,11 +25,11 @@
                     <label>Gmail</label>
                   </div>
                   <div class="user-box">
-                    <input required="" name="username" type="text" />
+                    <input required="" name="username" type="text" maxlength="30"/>
                     <label>Username</label>
                   </div>
                   <div class="user-box">
-                    <input required="" name="password" type="password" />
+                    <input required="" name="password" type="password" maxlength="6"/>
                     <label>Password</label>
                   </div>
                   <button type="submit" name="login">

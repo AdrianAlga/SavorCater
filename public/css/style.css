@@ -6,7 +6,7 @@
 
 /* CSS Variabel */
 :root {
-    --orange: rgba(255, 151, 76, 1);
+    --orange: rgb(146, 121, 105);
     --merah: rgba(255, 67, 67, 1);
     --abu-abu: rgba(240, 240, 248, 1);
     --abu-abu2: rgb(126, 121, 121);
@@ -66,4 +66,18 @@ body {
 /* link */
 a {
     text-decoration: none;
+}
+
+/* .box:hover{
+    transform: scale(1.1);
+    transition: .4s;
+} */
+
+.whatsapp {
+    cursor: pointer;
+}
+
+.whatsapp:hover{
+    margin-bottom: 20px;
+    transition: .5s;
 }
