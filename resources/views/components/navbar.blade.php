@@ -8,7 +8,7 @@
   {{-- WhatsApp --}}
   <div class="container-fluid" style="">
     <div class="row col-12">
-      <div class="mb-3">
+      <div class="mb-5">
         <img class="whatsapp" src="{{ asset('images/whatsapp.png') }}" alt="img" height="50px"
           onclick="openWhatsApp()">
       </div>
@@ -25,14 +25,14 @@
       </div>
       <div class="col-3">
         <a href="{{ route('users.inbox.index') }}">
-          <i class="bi bi-inbox fs-2"></i>
+          <i class="bi bi-envelope fs-2"></i>
           <p>Inbox</p>
         </a>
       </div>
       <div class="col-3">
-        <a href="{{ route('users.booking.index') }}">
+        <a href="{{ route('users.order.index') }}">
           <i class="bi bi-calendar2-week fs-2"></i>
-          <p>Booking</p>
+          <p>Order</p>
         </a>
       </div>
       <div class="col-3">

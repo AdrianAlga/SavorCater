@@ -21,6 +21,10 @@
                 <p style="color: red; font-style: italic;" class="text-center">Username / Password Salah!</p>
                 <form action="" method="post">
                   <div class="user-box">
+                    <input required="" name="username" type="text" />
+                    <label>Nama Lengkap</label>
+                  </div>
+                  <div class="user-box">
                     <input required="" name="username" type="gmail" />
                     <label>Gmail</label>
                   </div>

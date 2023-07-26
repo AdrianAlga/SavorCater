@@ -30,7 +30,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-12 text-start">
-                    <h5>Pet Shoop</h5>
+                    <h5 class="fw-bold">Warung Jawa</h5>
                   </div>
                 </div>
                 <div class="row">
@@ -53,7 +53,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-12 text-start">
-                    <h5>Pet Shoop</h5>
+                    <h5 class="fw-bold">Warung Jawa</h5>
                   </div>
                 </div>
                 <div class="row">

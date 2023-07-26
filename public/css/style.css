@@ -75,9 +75,20 @@ a {
 
 .whatsapp {
     cursor: pointer;
+    animation: moveUpDown 2s linear infinite;
+    position: relative;
 }
 
-.whatsapp:hover{
+@keyframes moveUpDown {
+    0%, 100% {
+      top: 20px; /* Posisi awal di atas */
+    }
+    50% {
+      top: 50px; /* Posisi tengah, turun */
+    }
+  }
+
+/* .whatsapp:hover{
     margin-bottom: 20px;
     transition: .5s;
-}
+} */

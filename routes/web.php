@@ -31,15 +31,12 @@ Route::get('/user/catering/cow', fn()=> view('users.home.cow.index'))->name('use
 Route::get('/user/frozen/risol', fn()=> view('users.frozen.risol.index'))->name('users.frozen.risol.index');
 Route::get('/user/frozen/sosis', fn()=> view('users.frozen.sosis.index'))->name('users.frozen.sosis.index');
 
-
-
-
 //inbox
 Route::get('/user/inbox', fn()=> view('users.inbox.index'))->name('users.inbox.index');
 
-// Booking
-Route::get('/user/booking', fn()=> view('users.booking.live.index'))->name('users.booking.index');
-Route::get('/user/history_booking', fn()=> view('users.booking.history.index'))->name('users.history_booking.index');
+// Order
+Route::get('/user/order', fn()=> view('users.order.live.index'))->name('users.order.index');
+Route::get('/user/history_order', fn()=> view('users.order.history.index'))->name('users.history_order.index');
 
 // profile
 Route::get('/user/profile', fn()=> view('users.profile.index'))->name('users.profile.index');
@@ -49,10 +46,6 @@ Route::get('/user/edit_profile', fn()=> view('users.profile.edit.index'))->name(
 Route::get('/user/etalase', fn()=> view('users.etalase.index'))->name('users.etalase.index');
 Route::get('/user/checkout', fn()=> view('users.etalase.checkout.index'))->name('users.checkout.index');
 
-// checkout_grooming - checkout_grooming
-Route::get('/user/etalase_grooming', fn()=> view('users.etalase_grooming.index'))->name('users.etalase_grooming.index');
-// Route::get('/user/checkout_grooming', fn()=> view('users..etalase_grooming.checkout.index'))->name('users.checkout_grooming.index');
-
 // succes
 Route::get('/user/succes', fn()=> view('users.succes.index'))->name('users.succes.index');
-Route::get('/user/succes_grooming', fn()=> view('users.succes.grooming.index'))->name('users.succes_grooming.index');
+Route::get('/user/payment', fn()=> view('users.payment.index'))->name('users.payment.index');

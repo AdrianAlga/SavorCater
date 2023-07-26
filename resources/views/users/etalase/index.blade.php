@@ -126,7 +126,7 @@
                           </tr>
                           <tr>
                             <th scope="col-1">
-                              Harga / porsi
+                              Harga /porsi
                             </th>
                             <th scope="col">
                               :
