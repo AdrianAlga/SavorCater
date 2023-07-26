@@ -40,7 +40,7 @@
                   <div class="row">
                     <div class="col-12">
                       <span class="text-white">Apakah anda belum mempunyai akun?</span>
-                      <span class="ps-1"><a href="{{ route('.regist') }}">Daftar sekarang</a></span>
+                      <span class="ps-1"><a href="{{ route('regist') }}">Daftar sekarang</a></span>
                     </div>
                   </div>
                 </div>

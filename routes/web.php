@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 
 // login
-Route::get('/login', fn()=> view('.login'))->name('.login');
-Route::get('/regist', fn()=> view('.regist'))->name('.regist');
+Route::get('/login', fn()=> view('.login'))->name('login');
+Route::get('/regist', fn()=> view('.regist'))->name('regist');
 
 
 // Home
@@ -46,6 +46,21 @@ Route::get('/user/edit_profile', fn()=> view('users.profile.edit.index'))->name(
 Route::get('/user/etalase', fn()=> view('users.etalase.index'))->name('users.etalase.index');
 Route::get('/user/checkout', fn()=> view('users.etalase.checkout.index'))->name('users.checkout.index');
 
+// Payment
+Route::get('/user/payment', fn()=> view('users.payment.index'))->name('users.payment.index');
+
 // succes
 Route::get('/user/succes', fn()=> view('users.succes.index'))->name('users.succes.index');
-Route::get('/user/payment', fn()=> view('users.payment.index'))->name('users.payment.index');
+
+
+
+
+// ===== ADMIN ====== //
+Route::get('/admin/home', fn()=> view('admin.home.index'))->name('admin.index');
+Route::get('/admin/produk', fn()=> view('admin.product.produk'))->name('admin.produk');
+Route::get('/admin/tambahProduk', fn()=> view('admin.product.tambahProduk'))->name('admin.tambahProduk');
+Route::get('/admin/informasiProduk', fn()=> view('admin.product.informasiProduk'))->name('admin.informasiProduk');
+Route::get('/admin/editProduk', fn()=> view('admin.product.editProduk'))->name('admin.editProduk');
+Route::get('/admin/informasiPesanan', fn()=> view('admin.order.informasiPesanan'))->name('admin.informasiPesanan');
+Route::get('/admin/pesanan', fn()=> view('admin.order.pesanan'))->name('admin.pesanan');
+Route::get('/admin/message', fn()=> view('admin.message.index'))->name('admin.message');

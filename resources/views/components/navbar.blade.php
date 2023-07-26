@@ -6,14 +6,16 @@
 
 <section id="navbar" class="fixed-bottom">
   {{-- WhatsApp --}}
-  <div class="container-fluid" style="">
-    <div class="row col-12">
-      <div class="mb-5">
-        <img class="whatsapp" src="{{ asset('images/whatsapp.png') }}" alt="img" height="50px"
-          onclick="openWhatsApp()">
+  {{-- <div class="container-fluid" style="">
+    <div class="row bg-danger">
+      <div class="col-3">
+        <div class="mb-5">
+          <img class="whatsapp" src="{{ asset('images/whatsapp.png') }}" alt="img" height="50px"
+            onclick="openWhatsApp()">
+        </div>
       </div>
     </div>
-  </div>
+  </div> --}}
   {{-- fitur --}}
   <div class="container-fluid">
     <div class="row text-center bg-abu-abu pt-2 font-txt small" style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3)">

@@ -202,14 +202,41 @@
           </div>
         </div>
         <div class="row mt-3 border-top border-2 pt-3 text-center">
-          <div class="col-md-6 fw-bold fs-5">
+          <div class="col-md-4 fw-bold fs-5">
             <span class="px-3">Total Pesanan :</span><span>Rp.</span><Span>500.000</Span>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-4">
             <span class="fw-bold">Status : </span><span class="badge text-bg-info text-white">Padding</span>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Kirim Bukti
+              Pembayaran</button>
           </div>
         </div>
       </div>
     </div>
+    {{-- Modal Bukti Pembayaran --}}
+    <form action="">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Payment</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label">Masukkan Bukti Pembayaran</label>
+                <input class="form-control form-control-sm" id="formFileSm" type="file">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </section>
 @endsection

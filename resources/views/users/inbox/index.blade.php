@@ -23,7 +23,8 @@
           <div class="row">
             <div class="col-2">
               <div>
-                <img src="/images/Background1.png" alt="img" height="50px" width="50px" class="rounded-circle" />
+                <img src="{{ asset('images/logo.png') }}" alt="img" height="50px" width="50px"
+                  class="rounded-circle" />
               </div>
             </div>
             <div class="col-10">
@@ -46,7 +47,8 @@
           <div class="row">
             <div class="col-2">
               <div>
-                <img src="/images/Background1.png" alt="img" height="50px" width="50px" class="rounded-circle" />
+                <img src="{{ asset('images/logo.png') }}" alt="img" height="50px" width="50px"
+                  class="rounded-circle" />
               </div>
             </div>
             <div class="col-10">
@@ -63,6 +65,38 @@
             </div>
           </div>
         </button>
+      </div>
+      <div class="border border-end-0 border-start-0 border-top-0 mb-3">
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="bg-transparent border-0">
+          <div class="row">
+            <div class="col-2">
+              <div>
+                <img src="{{ asset('images/logo.png') }}" alt="img" height="50px" width="50px"
+                  class="rounded-circle" />
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 text-start">
+                    <h5 class="fw-bold">Warung Jawa</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 text-start">Hello apa kabar, yuk checkout lagi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="row fixed-bottom ps-3" style="margin-bottom: 100px">
+      <div class="col-3">
+        <div>
+          <img class="whatsapp" src="{{ asset('images/whatsapp.png') }}" alt="img" height="50px"
+            onclick="openWhatsApp()">
+        </div>
       </div>
     </div>
     <!-- Modal -->
