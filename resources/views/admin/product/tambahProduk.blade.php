@@ -32,16 +32,31 @@
               <form>
                 <h4 class="mb-4 text-center">Produk</h4>
                 <div class="user-box">
-                  <input type="text" name="" required="" />
-                  <label class="text-black">Nama Produk</label>
+                  <input type="text" name="fieldName" id="fieldName" required />
+                  @error('fieldName')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                  <label for="fieldName" class="text-black">Nama Produk</label>
                 </div>
                 <div class="user-box">
-                  <input type="number" name="" required="" min="0" />
-                  <label class="text-black">Harga Produk</label>
+                  <input type="number" name="fieldName" id="fieldName" required min="0" />
+                  @error('fieldName')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                  <label for="fieldName" class="text-black">Harga Produk</label>
                 </div>
                 <div class="user-box">
-                  <input type="number" name="" required="" min="0" />
-                  <label class="text-black">Jumlah Stok</label>
+                  <input type="number" name="fieldName" id="fieldName" required min="0" />
+                  @error('fieldName')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                  <label for="fieldName" class="text-black">Jumlah Stok</label>
                 </div>
                 <div class="container">
                   <div class="row">
@@ -66,8 +81,13 @@
                   </div>
                 </div>
                 <div class="my-3">
-                  <label for="formFile" class="form-label">Masukkan foto produk</label>
-                  <input class="form-control" type="file" id="formFile" required />
+                  <label for="fieldName" class="form-label">Masukkan foto produk</label>
+                  <input class="form-control" type="file" name="fieldName" id="fieldName" required />
+                  @error('fieldName')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Catatan Produk</label>

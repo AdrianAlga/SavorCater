@@ -21,20 +21,40 @@
                 <p style="color: red; font-style: italic;" class="text-center">Username / Password Salah!</p>
                 <form action="" method="post">
                   <div class="user-box">
-                    <input required="" name="username" type="text" />
-                    <label>Nama Lengkap</label>
+                    <label for="fieldName">Nama Lengkap</label>
+                    <input required id="fieldName" name="fieldName" type="text" />
+                    @error('fieldName')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
                   <div class="user-box">
-                    <input required="" name="username" type="gmail" />
-                    <label>Gmail</label>
+                    <label for="fieldName">Gmail</label>
+                    <input required id="fieldName" name="fieldName" type="gmail" />
+                    @error('fieldName')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
                   <div class="user-box">
-                    <input required="" name="username" type="text" maxlength="30"/>
-                    <label>Username</label>
+                    <label for="fieldName">Username</label>
+                    <input required id="fieldName" name="fieldName" type="text" maxlength="30" />
+                    @error('fieldName')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
                   <div class="user-box">
-                    <input required="" name="password" type="password" maxlength="6"/>
-                    <label>Password</label>
+                    <label for="fieldName">Password</label>
+                    <input required id="fieldName" name="fieldName" type="password" maxlength="6" />
+                    @error('fieldName')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
                   <button type="submit" name="login">
                     <span></span>

@@ -54,22 +54,38 @@
         <div class="col-md-5 border shadow p-3">
           <h3 class="mb-5 text-center">Informasi Pembeli:</h3>
           <div class="user-checkout">
-            <form>
+            <form action="">
               <div class="form-group">
-                <label for="namaLengkap">Nama Lengkap</label>
-                <input type="text" class="form-control" id="namaLengkap" aria-describedby="namaHelp" required />
+                <label for="fieldName">Nama Lengkap</label>
+                <input type="text" class="form-control" name="fieldName" id="fieldName" aria-describedby="namaHelp"
+                  required />
+                @error('fieldName')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
               </div>
               <div class="form-group">
-                <label for="emailAddress">Alamat Email</label>
-                <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" required />
+                <label for="fieldName">Alamat Email</label>
+                <input type="email" class="form-control" name="fieldName" id="fieldName" aria-describedby="emailHelp" required />
+                @error('fieldName')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
               </div>
               <div class="form-group">
-                <label for="noHP">Telepon</label>
-                <input type="number" class="form-control" id="noHP" aria-describedby="noHPHelp" required />
+                <label for="fieldName">Telepon</label>
+                <input type="number" class="form-control" name="fieldName" id="fieldName" aria-describedby="noHPHelp" required />
+                @error('fieldName')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
               </div>
               <div class="form-group">
-                <label for="alamatLengkap">Alamat Lengkap</label>
-                <textarea class="form-control" id="alamatLengkap" rows="3" required></textarea>
+                <label for="fieldName">Alamat Lengkap</label>
+                <textarea class="form-control" name="fieldName" id="fieldName" rows="3" required></textarea>
               </div>
               <div class="col-md my-3">
                 <p>Pilih Pembayaran</p>
