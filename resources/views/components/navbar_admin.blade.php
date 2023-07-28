@@ -29,7 +29,7 @@
               <div class="card mt-2">
                 <div class="container">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.produk') }}"><i class="bi bi-egg-fried"></i>
+                    <a class="nav-link active" aria-current="page" href="{{ route('admin.product.index') }}"><i class="bi bi-egg-fried"></i>
                       Produk</a>
                   </li>
                 </div>
@@ -37,7 +37,7 @@
               <div class="card mt-2">
                 <div class="container">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.pesanan') }}"><i class="bi bi-cart3"></i>
+                    <a class="nav-link active" aria-current="page" href="{{ route('admin.order.index') }}"><i class="bi bi-cart3"></i>
                       Pesanan</a>
                   </li>
                 </div>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminMessageController;
+use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\AdminProductContoller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,11 +59,21 @@ Route::get('/user/succes', fn()=> view('users.succes.index'))->name('users.succe
 
 
 // ===== ADMIN ====== //
-Route::get('/admin/home', fn()=> view('admin.home.index'))->name('admin.index');
-Route::get('/admin/produk', fn()=> view('admin.product.produk'))->name('admin.produk');
-Route::get('/admin/tambahProduk', fn()=> view('admin.product.tambahProduk'))->name('admin.tambahProduk');
-Route::get('/admin/informasiProduk', fn()=> view('admin.product.informasiProduk'))->name('admin.informasiProduk');
-Route::get('/admin/editProduk', fn()=> view('admin.product.editProduk'))->name('admin.editProduk');
-Route::get('/admin/informasiPesanan', fn()=> view('admin.order.informasiPesanan'))->name('admin.informasiPesanan');
-Route::get('/admin/pesanan', fn()=> view('admin.order.pesanan'))->name('admin.pesanan');
-Route::get('/admin/message', fn()=> view('admin.message.index'))->name('admin.message');
+Route::prefix('admin')->group(function () {
+    Route::get('', fn () => view('admin.home.index', ["title" => "Admin"]))->name('admin.index');
+    Route::resource('product', AdminProductContoller::class)->names('admin.product');
+    Route::get('message', [AdminMessageController::class, 'index'])->name('admin.message');
+    Route::post('message', [AdminMessageController::class, 'store'])->name('admin.message.store');
+    Route::delete('message/{message}', [AdminMessageController::class, 'destroy'])->name('admin.message.destroy');
+    Route::get('order', [AdminOrderController::class, 'index'])->name('admin.order.index');
+    Route::get('order/{order}', [AdminOrderController::class, 'show'])->name('admin.order.show');
+    Route::delete('order/{order}', [AdminOrderController::class, 'destroy'])->name('admin.order.destroy');
+});
+// Route::get('/admin/home', fn()=> view('admin.home.index'))->name('admin.index');
+// Route::get('/admin/produk', fn()=> view('admin.product.produk'))->name('admin.produk');
+// Route::get('/admin/tambahProduk', fn()=> view('admin.product.tambahProduk'))->name('admin.tambahProduk');
+// Route::get('/admin/informasiProduk', fn()=> view('admin.product.informasiProduk'))->name('admin.informasiProduk');
+// Route::get('/admin/editProduk', fn()=> view('admin.product.editProduk'))->name('admin.editProduk');
+// Route::get('/admin/informasiPesanan', fn()=> view('admin.order.informasiPesanan'))->name('admin.informasiPesanan');
+// Route::get('/admin/pesanan', fn()=> view('admin.order.pesanan'))->name('admin.pesanan');
+// Route::get('/admin/message', fn()=> view('admin.message.index'))->name('admin.message');

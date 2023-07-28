@@ -45,39 +45,41 @@
                       <tr>
                         <td>Nama Produk</td>
                         <td>:</td>
-                        <td>Ayam Pop</td>
+                        <td>{{ $product->name }}</td>
                       </tr>
                       <tr>
                         <td>Harga Produk</td>
                         <td>:</td>
-                        <td>50.000</td>
+                        <td>{{ $product->price }}</td>
                       </tr>
                       <tr>
                         <td>Jumlah Stok</td>
                         <td>:</td>
-                        <td>255</td>
+                        <td>{{ $product->stock }}</td>
                       </tr>
                       <tr>
                         <td>Kategori Makanan</td>
                         <td>:</td>
-                        <td>Catering</td>
+                        <td>{{ $product->product_category }}</td>
                       </tr>
                       <tr>
                         <td>Kategori Menu</td>
                         <td>:</td>
-                        <td>Ayam</td>
+                        <td>{{ $product->food_category }}</td>
                       </tr>
                       <tr>
                         <td>Catatan Produk</td>
                         <td>:</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus minus voluptas, vel id ut,
-                          necessitatibus fuga nesciunt tenetur reprehenderit, ab soluta delectus optio? Est ab adipisci
-                          eius sed quisquam facilis!</td>
+                        <td>
+                          {{ $product->descriptionn }}
+                        </td>
                       </tr>
                       <tr>
                         <td>Gambar : </td>
                         <td>:</td>
-                        <td><img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="150px"></td>
+                        <td>
+                          <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="150px">
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -88,7 +90,7 @@
           <div>
             <button type="button" class="btn btn-primary"
               style="--bs-btn-padding-y: 0.25rem; --bs-btn-padding-x: 0.5rem; --bs-btn-font-size: 0.75rem"><a
-                href="{{ route('admin.produk') }}">Back</a></button>
+                href="{{ route('admin.product.index') }}">Back</a></button>
           </div>
         </div>
       </div>
