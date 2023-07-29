@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminMessageController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginRegisController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\AdminProductContoller;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminMessageController;
+use App\Http\Controllers\User\UserHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,38 +24,46 @@ Route::get('/', function () {
 
 
 // login
-Route::get('/login', fn()=> view('.login'))->name('login');
-Route::get('/regist', fn()=> view('.regist'))->name('regist');
+Route::controller(LoginRegisController::class)->group(function () {
+    Route::middleware(['guest'])->group(function () {
+        Route::get('login', 'loginView')->name('login');
+        Route::post('login', 'loginProcess')->name('loginProcess');
+        Route::get('regis', 'regisView')->name('regis');
+        Route::post('regis', 'regisProcess')->name('regisProcess');
+    });
+    Route::get('logout', 'logout')->name('logout')->middleware('auth');
+});
 
+Route::get('', [UserHomeController::class, 'index'])->name('home');
 
 // Home
-Route::get('/user/home', fn()=> view('users.home.chicken.index'))->name('users.chicken.index');
-Route::get('/user/catering/cow', fn()=> view('users.home.cow.index'))->name('users.cow.index');
+Route::get('/user/home', fn () => view('users.home.chicken.index'))->name('users.chicken.index');
+Route::get('/user/catering/cow', fn () => view('users.home.cow.index'))->name('users.cow.index');
 
 // frozen
-Route::get('/user/frozen/risol', fn()=> view('users.frozen.risol.index'))->name('users.frozen.risol.index');
-Route::get('/user/frozen/sosis', fn()=> view('users.frozen.sosis.index'))->name('users.frozen.sosis.index');
+Route::get('/user/frozen/risol', fn () => view('users.frozen.risol.index'))->name('users.frozen.risol.index');
+Route::get('/user/frozen/sosis', fn () => view('users.frozen.sosis.index'))->name('users.frozen.sosis.index');
 
 //inbox
-Route::get('/user/inbox', fn()=> view('users.inbox.index'))->name('users.inbox.index');
+Route::get('/user/inbox', fn () => view('users.inbox.index'))->name('users.inbox.index');
 
 // Order
-Route::get('/user/order', fn()=> view('users.order.live.index'))->name('users.order.index');
-Route::get('/user/history_order', fn()=> view('users.order.history.index'))->name('users.history_order.index');
+Route::get('/user/order', fn () => view('users.order.live.index'))->name('users.order.index');
+Route::get('/user/history_order', fn () => view('users.order.history.index'))->name('users.history_order.index');
 
 // profile
-Route::get('/user/profile', fn()=> view('users.profile.index'))->name('users.profile.index');
-Route::get('/user/edit_profile', fn()=> view('users.profile.edit.index'))->name('users.edit_profile.index');
+Route::get('/user/profile', fn () => view('users.profile.index'))->name('users.profile.index');
+Route::get('/user/edit_profile', fn () => view('users.profile.edit.index'))->name('users.edit_profile.index');
 
 // checkout - checkout
-Route::get('/user/etalase', fn()=> view('users.etalase.index'))->name('users.etalase.index');
-Route::get('/user/checkout', fn()=> view('users.etalase.checkout.index'))->name('users.checkout.index');
+Route::get('/user/etalase', fn () => view('users.etalase.index'))->name('users.etalase.index');
+Route::get('/user/checkout', fn () => view('users.etalase.checkout.index'))->name('users.checkout.index');
 
 // Payment
-Route::get('/user/payment', fn()=> view('users.payment.index'))->name('users.payment.index');
+Route::get('/user/payment', fn () => view('users.payment.index'))->name('users.payment.index');
 
 // succes
-Route::get('/user/succes', fn()=> view('users.succes.index'))->name('users.succes.index');
+Route::get('/user/succes', fn () => view('users.succes.index'))->name('users.succes.index');
 
 
 

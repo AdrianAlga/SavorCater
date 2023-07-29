@@ -30,7 +30,7 @@
                     @enderror
                   </div>
                   <div class="user-box">
-                    <label for="fieldName">Gmail</label>
+                    <label for="fieldName">Email</label>
                     <input required id="fieldName" name="fieldName" type="gmail" />
                     @error('fieldName')
                       <div class="invalid-feedback">
