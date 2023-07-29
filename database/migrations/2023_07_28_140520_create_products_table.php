@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->decimal('price', 5, 3);
+            $table->string('price');
             $table->integer('stock')->unsigned();
             $table->enum('product_category', ['catering', 'frozen']);
             $table->enum('food_category', ['ayam', 'sapi', 'risol', 'sosis']);

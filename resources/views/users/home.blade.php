@@ -106,62 +106,44 @@
       <div class="food-category-content">
         <div class="catering-content">
           <div class="row">
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm rounded-4 card">
-                  <div class="text-center">
-                    <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Ayam Pop</h4>
-                  </div>
+            @foreach ($products as $product)
+              @if ($product['product_category'] == 'catering' && $product['food_category'] == 'ayam')
+                <div class="col-md-3 col-6 p-0 box">
+                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                    <div class="m-1 shadow-sm rounded-4 card">
+                      <div class="text-center">
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
+                          class="rounded-top-4" />
+                      </div>
+                      <div class="py-3 px-2 text-center">
+                        <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm rounded-4 card">
-                  <div class="text-center">
-                    <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Ayam Pop</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+              @endif
+            @endforeach
           </div>
         </div>
         <div class="catering-content hide-content">
           <div class="row">
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm rounded-4 card">
-                  <div class="text-center">
-                    <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Sapi Pop</h4>
-                  </div>
+            @foreach ($products as $product)
+              @if ($product['product_category'] == 'catering' && $product['food_category'] == 'sapi')
+                <div class="col-md-3 col-6 p-0 box">
+                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                    <div class="m-1 shadow-sm rounded-4 card">
+                      <div class="text-center">
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
+                          class="rounded-top-4" />
+                      </div>
+                      <div class="py-3 px-2 text-center">
+                        <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm rounded-4 card">
-                  <div class="text-center">
-                    <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Sapi Pop</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+              @endif
+            @endforeach
           </div>
         </div>
       </div>
@@ -169,62 +151,44 @@
       <div class="food-category-content hide-content">
         <div class="frozen-content">
           <div class="row">
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm card rounded-4">
-                  <div class="text-center">
-                    <img src="{{ asset('images/frozen.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Risol Pop</h4>
-                  </div>
+            @foreach ($products as $product)
+              @if ($product['product_category'] == 'frozen' && $product['food_category'] == 'risol')
+                <div class="col-md-3 col-6 p-0 box">
+                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                    <div class="m-1 shadow-sm rounded-4 card">
+                      <div class="text-center">
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
+                          class="rounded-top-4" />
+                      </div>
+                      <div class="py-3 px-2 text-center">
+                        <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm rounded-4 card">
-                  <div class="text-center">
-                    <img src="{{ asset('images/frozen.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Risol Frozen</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+              @endif
+            @endforeach
           </div>
         </div>
         <div class="frozen-content hide-content">
           <div class="row">
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm card rounded-4">
-                  <div class="text-center">
-                    <img src="{{ asset('images/frozen.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">Sosis Pop</h4>
-                  </div>
+            @foreach ($products as $product)
+              @if ($product['product_category'] == 'frozen' && $product['food_category'] == 'sosis')
+                <div class="col-md-3 col-6 p-0 box">
+                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                    <div class="m-1 shadow-sm rounded-4 card">
+                      <div class="text-center">
+                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
+                          class="rounded-top-4" />
+                      </div>
+                      <div class="py-3 px-2 text-center">
+                        <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="col-md-3 col-6 p-0 box">
-              <a href="{{ route('users.etalase.index') }}">
-                <div class="m-1 shadow-sm rounded-4 card">
-                  <div class="text-center">
-                    <img src="{{ asset('images/frozen.jpg') }}" alt="img" height="400px" width="100%"
-                      class="rounded-top-4" />
-                  </div>
-                  <div class="py-3 px-2 text-center">
-                    <h4 class="m-0 fw-bold">sosis Frozen</h4>
-                  </div>
-                </div>
-              </a>
-            </div>
+              @endif
+            @endforeach
           </div>
         </div>
       </div>

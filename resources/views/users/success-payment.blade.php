@@ -21,7 +21,7 @@
                 <p>Terima kasih telah mempercayakan Warung Jawa untuk segala kebutuhan catering & Frozen Anda</p>
               </div>
               <div class="col-10 col-md-6 py-5">
-                <a href="{{ route('users.chicken.index') }}">
+                <a href="{{ route('home') }}">
                   <button class="btn bg-white txt-orange w-100 rounded-4">Kembali</button>
                 </a>
               </div>

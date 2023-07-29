@@ -13,7 +13,7 @@
           <button class="btn bg-orange text-white btn- w-100"><i class="bi bi-plus-lg"></i> Keranjang</button>
         </div>
         <div class="col-6">
-          <a href="{{ route('users.checkout.index') }}">
+          <a href="{{ route('checkout') }}">
             <button class="btn bg-orange text-white btn- w-100">Pesan Sekarang</button>
           </a>
         </div>
@@ -27,7 +27,7 @@
           <div class="container">
             <div class="row">
               <div class="col-6 d-flex">
-                <a href="{{ route('users.chicken.index') }}">
+                <a href="{{ route('home') }}">
                   <h2><i class="bi bi-arrow-left text-dark"></i></h2>
                 </a>
                 <h4 class="font-txt fw-bold ms-3 py-1">Makanan</h4>

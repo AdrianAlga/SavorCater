@@ -15,12 +15,12 @@
       </div>
       <div class="row mx-4 rounded-3 mb-3 border rounded-5">
         <div class="col-6 text-center p-0">
-          <a href="{{ route('users.order.index') }}">
+          <a href="{{ route('order') }}">
             <button class="btn bg-orange rounded-end-0 rounded-start-5 w-100 shadow-sm text-white">Berlangsung</button>
           </a>
         </div>
         <div class="col-6 text-center px-0">
-          <a href="{{ route('users.history_order.index') }}">
+          <a href="{{ route('order.history') }}">
             <button class="btn bg-abu-abu rounded-start-0 rounded-end-5 w-100 border shadow-sm">History</button>
           </a>
         </div>

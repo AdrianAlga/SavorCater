@@ -81,7 +81,7 @@
                 </div>
               </div>
             </div>
-            <a href="{{ route('users.succes.index') }}" class="btn btn-info mt-4">Lanjut</a>
+            <a href="{{ route('success-payment') }}" class="btn btn-info mt-4">Lanjut</a>
           </div>
         </div>
       </div>

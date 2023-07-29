@@ -5,14 +5,14 @@
     <div class="container-fluid">
       <div class="row my-3">
         <div class="col-6">
-          <a href="{{ route('users.etalase.index') }}">
+          <a href="{{ route('home') }}">
             <h2><i class="bi bi-arrow-left text-dark"></i></h2>
           </a>
         </div>
       </div>
       <div class="row shadow border rounded-3 p-5 justify-content-around">
         <div class="col-md-12 text-center mb-5">
-          <h1>ETALASE</h1>
+          <h1>CHECKOUT</h1>
         </div>
         <div class="col-md-7">
           <table class="table align-middle text-center border">
@@ -145,7 +145,7 @@
                 </div>
               </div>
               <div class="col-12">
-                <a href="{{ route('users.payment.index') }}">
+                <a href="{{ route('payment') }}">
                   <button type="button" class="btn btn-info fw-bold text-white w-100">Checkout</button>
                 </a>
               </div>
