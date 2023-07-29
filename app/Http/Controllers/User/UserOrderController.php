@@ -28,7 +28,7 @@ class UserOrderController extends Controller
         $validated = $request->validate([
             "pay_image" => "required|image",
         ]);
-        $validated["image"] = $request->file('pay_image')->store('pay_image');
+        $validated["pay_image"] = $request->file('pay_image')->store('pay_image');
         $order->update($validated);
         return back()->with("success", "Bukti Pembayaran Berhasil diKirim, tunggu konfirmasi selanjutnya");
     }

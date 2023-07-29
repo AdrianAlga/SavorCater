@@ -105,7 +105,7 @@
                                       :
                                     </th>
                                     <th scope="col">
-                                      Rp.{{ $product->price }}
+                                      Rp. {{ number_format($product->price, 0, ',', '.') }}
                                     </th>
                                   </tr>
                                   <tr>
@@ -135,7 +135,7 @@
           <div class="row mt-3 border-top border-2 pt-3 text-center">
             <div class="col-md-6 fw-bold fs-5">
               <span class="px-3">Total Pesanan :</span>
-              <span>Rp.</span><Span>{{ $total }}</Span>
+              <span>Rp. </span><Span>{{ number_format($total, 0, ',', '.') }}</Span>
             </div>
             <div class="col-md-6">
               <span class="fw-bold">Status : </span>

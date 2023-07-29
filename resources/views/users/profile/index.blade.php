@@ -87,7 +87,7 @@
             <div class="user-box">
               <div class="mb-3 pt-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                <textarea class="form-control" id="" rows="5">{{ $user->description }}</textarea>
+                <textarea class="form-control" id="" rows="5" disabled>{{ $user->description }}</textarea>
               </div>
             </div>
           </div>

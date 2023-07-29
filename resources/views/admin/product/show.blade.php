@@ -50,7 +50,7 @@
                       <tr>
                         <td>Harga Produk</td>
                         <td>:</td>
-                        <td>{{ $product->price }}</td>
+                        <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
                       </tr>
                       <tr>
                         <td>Jumlah Stok</td>
@@ -71,7 +71,7 @@
                         <td>Catatan Produk</td>
                         <td>:</td>
                         <td>
-                          {{ $product->descriptionn }}
+                          {!! $product->description !!}
                         </td>
                       </tr>
                       <tr>

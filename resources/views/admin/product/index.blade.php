@@ -48,7 +48,7 @@
                   <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $product->name }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
                     <td>
                       <a href="{{ route('admin.product.show', ["product" => $product->id]) }}"><span class="badge text-bg-info">Informasi</span></a>
                       <a href="{{ route('admin.product.edit', ["product" => $product->id]) }}"><span class="badge text-bg-warning">Edit Produk</span></a>

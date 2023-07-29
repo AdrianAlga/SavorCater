@@ -50,7 +50,7 @@
                   <tr>
                     <td>Alamat</td>
                     <td>:</td>
-                    <td>{{ $order->phone }}</td>
+                    <td>{{ $order->address }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -80,7 +80,7 @@
                     <tr>
                       <td>Harga/Porsi</td>
                       <td>:</td>
-                      <td>Rp.{{ $product->price }}</td>
+                      <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
                     </tr>
                     <tr>
                       <td>Jumlah Pesanan</td>
@@ -90,12 +90,12 @@
                     <tr>
                       <td>Total</td>
                       <td>:</td>
-                      <td>Rp. {{ $product->price * $product->amount}}</td>
+                      <td>Rp. {{ number_format($product->price * $product->amount, 0, ',', '.') }}</td>
                     </tr>
                     <tr>
                       <td>Gambar</td>
                       <td>:</td>
-                      <td><img src="{{ asset('storage/'.$product->image) }}" alt="img" height="150px"></td>
+                      <td><img src="{{ asset('storage/' . $product->image) }}" alt="img" height="150px"></td>
                     </tr>
                   </tbody>
                 @endforeach
@@ -110,13 +110,21 @@
                   <tr>
                     <td>Total Pembayaran</td>
                     <td>:</td>
-                    <td>Rp.{{ $order->total }}</td>
+                    <td>Rp. {{ number_format($order->total, 0, ',', '.') }}</td>
                   </tr>
                   <tr>
                     <td>Metode Pembayaran</td>
                     <td>:</td>
                     <td>
-                      {{ $order->payment }}
+                      @if ($order->payment == 1)
+                        BCA
+                      @elseif ($order->payment == 2)
+                        BNI
+                      @elseif ($order->payment == 3)
+                        BRI
+                      @elseif ($order->payment == 4)
+                        Mandiri
+                      @endif
                     </td>
                   </tr>
                   <tr>
@@ -134,8 +142,7 @@
                     <td>:</td>
                     <td>
                       @if ($order->pay_image)
-                      <img src="{{ asset('images/frozen.jpg') }}" alt="img" height="300px">
-                          
+                        <img src="{{ asset('storage/' . $order->pay_image) }}" alt="img" height="300px">
                       @else
                         Belum Melakukan pembayaran
                       @endif
