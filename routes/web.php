@@ -62,5 +62,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('order', [AdminOrderController::class, 'index'])->name('admin.order.index');
         Route::get('order/{order}', [AdminOrderController::class, 'show'])->name('admin.order.show');
         Route::delete('order/{order}', [AdminOrderController::class, 'destroy'])->name('admin.order.destroy');
+        Route::post('order/status/{order}', [AdminOrderController::class, 'updateStatus'])->name('status.update');
     });
 });
