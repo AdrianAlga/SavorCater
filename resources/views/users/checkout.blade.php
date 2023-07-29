@@ -26,27 +26,34 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr>
-                <td class="col-2"><img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="50px" /></td>
-                <td class="col-5">Ayam Pop </td>
-                <td class="col-5">30</td>
-                <td class="col-3">20.000</td>
-                <td class="col-1"><button type="button" class="btn-close text-dark" style="font-size: 10px"
-                    aria-label="Close"></button></td>
-              </tr>
-              <tr>
-                <td class="col-2"><img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="50px" /></td>
-                <td class="col-5">Ayam Pop </td>
-                <td class="col-5">30</td>
-                <td class="col-3">200.000</td>
-                <td class="col-1"><button type="button" class="btn-close text-dark" style="font-size: 10px"
-                    aria-label="Close"></button></td>
-              </tr>
+              @php
+                $total = 0;
+              @endphp
+              @foreach ($carts as $cart)
+                <tr>
+                  <td class="col-2"><img src="{{ asset('storage/' . $cart->product->image) }}" alt="img"
+                      height="50px" /></td>
+                  <td class="col-5">{{ $cart->product->name }}</td>
+                  <td class="col-5">{{ $cart->amount }}</td>
+                  <td class="col-3">Rp. {{ $cart->amount * $cart->product->price }}</td>
+                  <td class="col-1">
+                    <form action="{{ route('destroyCart', ['cart' => $cart->id]) }}" method="post">
+                      @method('delete')
+                      @csrf
+                      <button type="submit" class="btn-close text-dark"
+                        style="font-size: 10px"aria-label="Close"></button>
+                    </form>
+                  </td>
+                </tr>
+                @php
+                  $total += $cart->amount * $cart->product->price;
+                @endphp
+              @endforeach
             </tbody>
             <tfoot>
               <tr>
                 <td class="fw-bold">Total</td>
-                <td colspan="4" class="fw-bold text-end">Rp. 20.000</td>
+                <td colspan="4" class="fw-bold text-end">Rp. {{ $total }}</td>
               </tr>
             </tfoot>
           </table>
@@ -54,38 +61,25 @@
         <div class="col-md-5 border shadow p-3">
           <h3 class="mb-5 text-center">Informasi Pembeli:</h3>
           <div class="user-checkout">
-            <form action="">
+            <form action="{{ route('order.product') }}" method="POST">
+              @csrf
+              <input type="hidden" name="total" value="{{ $total }}">
+            @foreach ($carts as $cart)
+                <input type="hidden" name="carts[]" value="{{ $cart->id }}">
+                <input type="hidden" name="amounts[]" value="{{ $cart->amount }}">
+                <input type="hidden" name="products_id[]" value="{{ $cart->product->id }}">
+              @endforeach
               <div class="form-group">
-                <label for="fieldName">Nama Lengkap</label>
-                <input type="text" class="form-control" name="fieldName" id="fieldName" aria-describedby="namaHelp"
-                  required />
-                @error('fieldName')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
+                <label for="namaLengkap">Nama Lengkap</label>
+                <input type="text" name="name" class="form-control" id="namaLengkap" aria-describedby="namaHelp" required />
               </div>
               <div class="form-group">
-                <label for="fieldName">Alamat Email</label>
-                <input type="email" class="form-control" name="fieldName" id="fieldName" aria-describedby="emailHelp" required />
-                @error('fieldName')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
+                <label for="namaLengkap">Telepon</label>
+                <input type="number" name="phone" class="form-control" id="noHP" aria-describedby="noHPHelp" required />
               </div>
               <div class="form-group">
-                <label for="fieldName">Telepon</label>
-                <input type="number" class="form-control" name="fieldName" id="fieldName" aria-describedby="noHPHelp" required />
-                @error('fieldName')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-              <div class="form-group">
-                <label for="fieldName">Alamat Lengkap</label>
-                <textarea class="form-control" name="fieldName" id="fieldName" rows="3" required></textarea>
+                <label for="alamatLengkap">Alamat Lengkap</label>
+                <textarea class="form-control" name="address" id="alamatLengkap" rows="3" required></textarea>
               </div>
               <div class="col-md my-3">
                 <p>Pilih Pembayaran</p>
@@ -104,7 +98,7 @@
                         <div class="row">
                           <div class="col-6 col-md-10 p-3">
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="payment1" />
+                              <input class="form-check-input" type="radio" name="payment" value="1" id="payment1" required/>
                               <label class="form-check-label" for="payment1">
                                 <div><img src="{{ asset('/images/payment1.png') }}" alt="dm"
                                     class="img-fluid border-bottom border-3" style="height: 50px" /></div>
@@ -113,7 +107,7 @@
                           </div>
                           <div class="col-6 col-md-10 p-3">
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="payment2" />
+                              <input class="form-check-input" type="radio" name="payment" value="2" id="payment2" required/>
                               <label class="form-check-label" for="payment2">
                                 <div><img src="{{ asset('/images/payment2.png') }}" alt="dm"
                                     class="img-fluid border-bottom border-3" style="height: 50px" /></div>
@@ -122,7 +116,7 @@
                           </div>
                           <div class="col-6 col-md-10 p-3">
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="payment3" />
+                              <input class="form-check-input" type="radio" name="payment" value="3" id="payment3" required/>
                               <label class="form-check-label" for="payment3">
                                 <div><img src="{{ asset('/images/payment3.png') }}" alt="dm"
                                     class="img-fluid border-bottom border-3" style="height: 50px" /></div>
@@ -131,7 +125,7 @@
                           </div>
                           <div class="col-6 col-md-10 p-3">
                             <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="payment4" />
+                              <input class="form-check-input" type="radio" name="payment" value="4" id="payment4" required/>
                               <label class="form-check-label" for="payment4">
                                 <div><img src="{{ asset('/images/payment4.png') }}" alt="dm"
                                     class="img-fluid border-bottom border-3" style="height: 50px" /></div>
@@ -145,9 +139,9 @@
                 </div>
               </div>
               <div class="col-12">
-                <a href="{{ route('payment') }}">
-                  <button type="button" class="btn btn-info fw-bold text-white w-100">Checkout</button>
-                </a>
+                <div class="row pb-5">
+                  <button type="submit" class="btn btn-info fw-bold text-white">Checkout</button>
+                </div>
               </div>
             </form>
           </div>

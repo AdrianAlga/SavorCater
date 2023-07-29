@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image')->default('user/default.jpg');
             $table->enum('gender', ['Laki-Laki', 'Perempuan'])->nullable();
             $table->string('description')->nullable();
-            $table->boolean('level')->default(false);
+            $table->boolean('level')->default(true);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

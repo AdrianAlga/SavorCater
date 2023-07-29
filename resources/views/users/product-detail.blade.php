@@ -10,12 +10,28 @@
       <div class="row justify-content-center text-center bg-abu-abu py-3 font-txt small"
         style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3)">
         <div class="col-6">
-          <button class="btn bg-orange text-white btn- w-100"><i class="bi bi-plus-lg"></i> Keranjang</button>
+          <form action="{{ route('addCart') }}" method="post">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <input type="hidden" name="amount" value="1" class="amount-input">
+            <button type="submit" class="btn bg-orange text-white btn- w-100">
+              <i class="bi bi-plus-lg"></i>
+              Keranjang
+            </button>
+            {{-- <button type="submit" class="btn btn-secondary">+Keranjang</button> --}}
+          </form>
         </div>
         <div class="col-6">
-          <a href="{{ route('checkout') }}">
-            <button class="btn bg-orange text-white btn- w-100">Pesan Sekarang</button>
-          </a>
+          <form action="{{ route('addCart') }}" method="post">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <input type="hidden" name="checkout" value="true">
+            <input type="hidden" name="amount" value="1" class="amount-input2">
+            <button type="submit" class="btn bg-orange text-white btn- w-100">Pesan Sekarang</button>
+            {{-- <button type="submit" class="btn btn-secondary">Check Out</button> --}}
+          </form>
+          {{-- <a href="{{ route('checkout') }}">
+          </a> --}}
         </div>
       </div>
     </div>
@@ -33,8 +49,14 @@
                 <h4 class="font-txt fw-bold ms-3 py-1">Makanan</h4>
               </div>
               <div class="col-6 text-end">
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal" style="border: none">
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal" style="border: none; position: relative;">
                   <i class="bi bi-cart fs-3"></i>
+                  <span class="text-center text-white fw-bold rounded-circle"
+                    style="width: 20px; height: 20px; background: red; position: absolute; top: 0; left: 25px;">
+                    <span class="m-1">
+                      {{ $cart_count }}
+                    </span>
+                  </span>
                 </button>
               </div>
             </div>
@@ -71,7 +93,12 @@
                   <p class="m-0 pb-2">Jumlah</p>
                   <div class="quantity-input">
                     <div class="quantity-btn minus">-</div>
-                    <input type="number" min="0" value="1" />
+                    <input name="amount" type="number" min="0" value="1" />
+                    @error('amount')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                     <div class="quantity-btn2 plus">+</div>
                   </div>
                 </div>

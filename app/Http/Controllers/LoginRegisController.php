@@ -28,7 +28,7 @@ class LoginRegisController extends Controller
             $request->session()->regenerate();
             if ($user->level == 0) {
                 return redirect()->route('admin.index');
-            } else {
+            } elseif ($user->level == 1) {
                 return redirect()->route('home');
             }
         } else {

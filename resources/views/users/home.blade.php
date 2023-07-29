@@ -22,8 +22,14 @@
               </form>
             </div>
             <div class="col-2 text-start">
-              <button data-bs-toggle="modal" data-bs-target="#exampleModal" style="border: none">
+              <button data-bs-toggle="modal" data-bs-target="#exampleModal" style="border: none; position: relative;">
                 <i class="bi bi-cart fs-3"></i>
+                <span class="text-center text-white fw-bold rounded-circle"
+                  style="width: 20px; height: 20px; background: red; position: absolute; top: 0; left: 25px;">
+                  <span class="m-1">
+                    {{ $cart_count }}
+                  </span>
+                </span>
               </button>
             </div>
           </div>
@@ -109,11 +115,11 @@
             @foreach ($products as $product)
               @if ($product['product_category'] == 'catering' && $product['food_category'] == 'ayam')
                 <div class="col-md-3 col-6 p-0 box">
-                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                  <a href="{{ route('product.detail', ['product' => $product->id]) }}">
                     <div class="m-1 shadow-sm rounded-4 card">
                       <div class="text-center">
-                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
-                          class="rounded-top-4" />
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="img" height="400px"
+                          width="100%" class="rounded-top-4" />
                       </div>
                       <div class="py-3 px-2 text-center">
                         <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
@@ -130,11 +136,11 @@
             @foreach ($products as $product)
               @if ($product['product_category'] == 'catering' && $product['food_category'] == 'sapi')
                 <div class="col-md-3 col-6 p-0 box">
-                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                  <a href="{{ route('product.detail', ['product' => $product->id]) }}">
                     <div class="m-1 shadow-sm rounded-4 card">
                       <div class="text-center">
-                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
-                          class="rounded-top-4" />
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="img" height="400px"
+                          width="100%" class="rounded-top-4" />
                       </div>
                       <div class="py-3 px-2 text-center">
                         <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
@@ -154,11 +160,11 @@
             @foreach ($products as $product)
               @if ($product['product_category'] == 'frozen' && $product['food_category'] == 'risol')
                 <div class="col-md-3 col-6 p-0 box">
-                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                  <a href="{{ route('product.detail', ['product' => $product->id]) }}">
                     <div class="m-1 shadow-sm rounded-4 card">
                       <div class="text-center">
-                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
-                          class="rounded-top-4" />
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="img" height="400px"
+                          width="100%" class="rounded-top-4" />
                       </div>
                       <div class="py-3 px-2 text-center">
                         <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
@@ -175,11 +181,11 @@
             @foreach ($products as $product)
               @if ($product['product_category'] == 'frozen' && $product['food_category'] == 'sosis')
                 <div class="col-md-3 col-6 p-0 box">
-                  <a href="{{ route('product.detail', ["product"=>$product->id]) }}">
+                  <a href="{{ route('product.detail', ['product' => $product->id]) }}">
                     <div class="m-1 shadow-sm rounded-4 card">
                       <div class="text-center">
-                        <img src="{{ asset('storage/'.$product->image) }}" alt="img" height="400px" width="100%"
-                          class="rounded-top-4" />
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="img" height="400px"
+                          width="100%" class="rounded-top-4" />
                       </div>
                       <div class="py-3 px-2 text-center">
                         <h4 class="m-0 fw-bold">{{ $product->name }}</h4>
@@ -215,22 +221,25 @@
             </div>
             <div class="modal-body">
               <div class="container p-0">
-                <div class="row border py-3 my-1">
-                  <div class="col-4">
-                    <div>
-                      <img src="{{ asset('images/ayam-pop.jpg') }}" alt="img" height="80px" width="100%" />
+                @foreach ($carts as $cart)
+                  <div class="row border py-3 my-1">
+                    <div class="col-4">
+                      <div>
+                        <img src="{{ asset('storage/' . $cart->product->image) }}" alt="img" height="80px"
+                          width="100%" />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="container h-100">
-                      <div class="row align-items-center h-100">
-                        <div class="col-12 fw-bold fs-6">
-                          <h5>Ayam Pop</h5>
+                    <div class="col-8">
+                      <div class="container h-100">
+                        <div class="row align-items-center h-100">
+                          <div class="col-12 fw-bold fs-6">
+                            <h5>{{ $cart->product->name }}</h5>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                @endforeach
               </div>
             </div>
             <div class="modal-footer">
@@ -249,7 +258,9 @@
                     </div>
                   </div>
                   <div class="col-4 text-end">
-                    <button type="button" class="btn btn-sm bg-orange text-white">Check Out</button>
+                    <a href="{{ route('checkout') }}">
+                      <button type="button" class="btn btn-sm bg-orange text-white">Check Out</button>
+                    </a>
                   </div>
                 </div>
               </div>
