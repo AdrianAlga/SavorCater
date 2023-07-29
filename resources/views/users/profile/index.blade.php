@@ -92,6 +92,13 @@
           </div>
         </div>
       </div>
+      <div class="row mt-3 justify-content-center">
+        <div class="col-6 text-center pb-3 ">
+          <a href="{{ route('logout') }}">
+            <button class="btn btn-danger w-100">Logout</button>
+          </a>
+        </div>
+      </div>
       <div>
         <div class="row" style="margin-top: 94px">
           <div class="col-md-12"></div>
