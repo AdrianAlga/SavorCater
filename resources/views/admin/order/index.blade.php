@@ -43,9 +43,9 @@
               <tbody>
                 @foreach ($orders as $order)
                   <tr>
-                    <th scope="row">1</th>
-                    <td>2023-06-05</td>
-                    <td>isra</td>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $order->created_at }}</td>
+                    <td>{{ $order->name }}</td>
                     <td>
                       <a href="{{ route('admin.order.show', ['order' => $order->id]) }}"><span
                           class="badge text-bg-info">Informasi</span></a>

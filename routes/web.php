@@ -37,9 +37,12 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('product/{product}', [UserHomeController::class, 'detailProduct'])->name('product.detail');
     Route::get('inbox', [UserInboxController::class, 'index'])->name('inbox');
     Route::get('order', [UserOrderController::class, 'index'])->name('order');
+    Route::post('pay_image/{order}', [UserOrderController::class, 'pay_image'])->name('pay_image');
     Route::get('order-history', [UserOrderController::class, 'history'])->name('order.history');
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
     Route::get('profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('profile/update', [UserProfileController::class, 'update'])->name('profile.update');
+    Route::post('profile/profileImage', [UserProfileController::class, 'profileImage'])->name('profileImage');
     Route::get('checkout', [UserHomeController::class, 'checkout'])->name('checkout');
     Route::get('payment/{order}', [UserHomeController::class, 'confirmPayment'])->name('payment');
     Route::get('success', [UserHomeController::class, 'successPayment'])->name('success-payment');

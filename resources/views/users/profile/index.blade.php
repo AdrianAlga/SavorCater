@@ -22,7 +22,8 @@
       <div class="row">
         <div class="col-12 text-center">
           <div>
-            <img src="/images/profile.JPG" alt="img" class="rounded-circle" height="130px" width="130px" />
+            <img src="{{ asset('storage/' . $user->image) }}" alt="img" class="rounded-circle" height="130px"
+              width="130px" />
           </div>
         </div>
         <div class="col-12 text-center">
@@ -35,7 +36,7 @@
         <div class="col-12">
           <div class="login-box">
             <div class="user-box">
-              <input type="text" name="" value="Ananda Nuramalia Arfan" disabled />
+              <input type="text" name="" value="{{ $user->name }}" disabled />
               <label>Nama Lengkap</label>
             </div>
           </div>
@@ -49,13 +50,13 @@
         </div>
         <div class="col-6">
           <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off"
-            disabled>
+            disabled @if ($user->gender && $user->gender == 'Laki-Laki') checked @endif>
           <label class="btn btn-outline-warning w-100 rounded-5" for="success-outlined"><i class="bi bi-gender-male"></i>
             Laki-Laki</label>
         </div>
         <div class="col-6">
           <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" disabled
-            checked>
+          @if ($user->gender && $user->gender == 'Perempuan') checked @endif>
           <label class="btn btn-outline-warning w-100 rounded-5" for="danger-outlined"><i
               class="bi bi-gender-female"></i>Perempuan</label>
         </div>
@@ -64,7 +65,7 @@
         <div class="col-12">
           <div class="login-box">
             <div class="user-box">
-              <input type="email" name="" value="anandanuramalia@gmail.com" disabled />
+              <input type="email" name="" value="{{ $user->email }}" disabled />
               <label>Email</label>
             </div>
           </div>
@@ -74,7 +75,7 @@
         <div class="col-12">
           <div class="login-box">
             <div class="user-box">
-              <input type="number" name="" value="085251754701" disabled />
+              <input type="number" name="" value="{{ $user->phone }}" disabled />
               <label>Phone</label>
             </div>
           </div>
@@ -86,7 +87,7 @@
             <div class="user-box">
               <div class="mb-3 pt-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                <textarea class="form-control" id="" rows="5"></textarea>
+                <textarea class="form-control" id="" rows="5">{{ $user->description }}</textarea>
               </div>
             </div>
           </div>
