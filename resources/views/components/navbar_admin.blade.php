@@ -21,7 +21,8 @@
               <div class="card">
                 <div class="container">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.index') }}"><i class="bi bi-house-door"></i>
+                    <a class="nav-link active" aria-current="page" href="{{ route('admin.index') }}"><i
+                        class="bi bi-house-door"></i>
                       Beranda</a>
                   </li>
                 </div>
@@ -29,7 +30,8 @@
               <div class="card mt-2">
                 <div class="container">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.produk') }}"><i class="bi bi-egg-fried"></i>
+                    <a class="nav-link active" aria-current="page" href="{{ route('admin.product.index') }}"><i
+                        class="bi bi-egg-fried"></i>
                       Produk</a>
                   </li>
                 </div>
@@ -37,7 +39,8 @@
               <div class="card mt-2">
                 <div class="container">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.pesanan') }}"><i class="bi bi-cart3"></i>
+                    <a class="nav-link active" aria-current="page" href="{{ route('admin.order.index') }}"><i
+                        class="bi bi-cart3"></i>
                       Pesanan</a>
                   </li>
                 </div>
@@ -45,7 +48,8 @@
               <div class="card mt-2">
                 <div class="container">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('admin.message') }}"><i class="bi bi-chat-dots"></i>
+                    <a class="nav-link active" aria-current="page" href="{{ route('admin.message') }}"><i
+                        class="bi bi-chat-dots"></i>
                       Message</a>
                   </li>
                 </div>
@@ -61,7 +65,7 @@
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
-              <a href="{{ route('login') }}">
+              <a href="{{ route('logout') }}">
                 <button class="dropdown-item logout" type="button">
                   Logout
                 </button>

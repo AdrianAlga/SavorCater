@@ -18,15 +18,28 @@
             <div class="col-11 col-md-5 ">
               <div class="login-box">
                 <p>Login</p>
-                <p style="color: red; font-style: italic;" class="text-center">Username / Password Salah!</p>
-                <form action="" method="post">
+                @if (session()->has('loginError'))
+                  <p style="color: red; font-style: italic;" class="text-center">Username / Password Salah!</p>
+                @endif
+                <form action="{{ route('loginProcess') }}" method="post">
+                  @csrf
                   <div class="user-box">
-                    <input required name="fieldName" id="fieldName" type="text" maxlength="30"/>
-                    <label for="fieldName">Username</label>
+                    <input required name="username" id="username" type="text" maxlength="30" class="@error('username') is-invalid @enderror"/>
+                    <label for="username">Username</label>
+                    @error('username')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
                   <div class="user-box">
-                    <input required="" name="fieldName" id="fieldName" type="password" maxlength="6"/>
-                    <label for="fieldName">Password</label>
+                    <input required="" name="password" id="password" type="password" class="@error('password') is-invalid @enderror"/>
+                    <label for="password">Password</label>
+                    @error('password')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
                   </div>
                   <button type="submit" name="login">
                     <span></span>
@@ -40,7 +53,7 @@
                   <div class="row">
                     <div class="col-12">
                       <span class="text-white">Apakah anda belum mempunyai akun?</span>
-                      <span class="ps-1"><a href="{{ route('regist') }}">Daftar sekarang</a></span>
+                      <span class="ps-1"><a href="{{ route('regis') }}">Daftar sekarang</a></span>
                     </div>
                   </div>
                 </div>

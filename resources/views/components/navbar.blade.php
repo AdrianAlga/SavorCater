@@ -5,40 +5,29 @@
 @endpush
 
 <section id="navbar" class="fixed-bottom">
-  {{-- WhatsApp --}}
-  {{-- <div class="container-fluid" style="">
-    <div class="row bg-danger">
-      <div class="col-3">
-        <div class="mb-5">
-          <img class="whatsapp" src="{{ asset('images/whatsapp.png') }}" alt="img" height="50px"
-            onclick="openWhatsApp()">
-        </div>
-      </div>
-    </div>
-  </div> --}}
   {{-- fitur --}}
   <div class="container-fluid">
     <div class="row text-center bg-abu-abu pt-2 font-txt small" style="box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3)">
       <div class="col-3">
-        <a href="{{ route('users.chicken.index') }}">
+        <a href="{{ route('home') }}">
           <i class="bi bi-house-door fs-2"></i>
           <p>Home</p>
         </a>
       </div>
       <div class="col-3">
-        <a href="{{ route('users.inbox.index') }}">
+        <a href="{{ route('inbox') }}">
           <i class="bi bi-envelope fs-2"></i>
           <p>Inbox</p>
         </a>
       </div>
       <div class="col-3">
-        <a href="{{ route('users.order.index') }}">
+        <a href="{{ route('order') }}">
           <i class="bi bi-calendar2-week fs-2"></i>
           <p>Order</p>
         </a>
       </div>
       <div class="col-3">
-        <a href="{{ route('users.profile.index') }}">
+        <a href="{{ route('profile') }}">
           <i class="bi bi-person-circle fs-2"></i>
           <p>Profile</p>
         </a>

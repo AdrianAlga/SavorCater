@@ -38,40 +38,50 @@
               <thead>
                 <tr>
                   <th class="col-md-0">No.</th>
-                  <th class="col-md-6">Tanggal Pesan</th>
+                  <th class="col-md-6">Tanggal Kirim</th>
+                  <th class="col-md-6">Pesan</th>
                   <th class="col-md-6">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>2023/07/25</td>
-                  <td>
-                    <button class="p-0 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#info"><span class="badge text-bg-info">Informasi</span></button>
-                    <a href="#"><span class="badge text-bg-danger" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">Delete</span></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- Hapus -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Hapus?</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">Apakah anda ingin menghapusnya?</div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                      <button type="button" class="btn btn-primary">Ya</button>
+                @foreach ($messages as $message)
+                  <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $message->created_at }}</td>
+                    <td>{{ $message->message }}</td>
+                    <td style="white-space:nowrap">
+                      <a href="#"><span class="badge text-bg-danger" data-bs-toggle="modal"
+                          data-bs-target="#deleteModal-{{ $message->id }}">Delete</span></a>
+                    </td>
+                  </tr>
+                  <!-- Hapus -->
+                  <div class="modal fade" id="deleteModal-{{ $message->id }}" tabindex="-1"
+                    aria-labelledby="deleteModal-{{ $message->id }}Label" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="deleteModal-{{ $message->id }}Label">Hapus?</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">Apakah anda ingin menghapusnya {{ $message->message }}?</div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                          <form action="{{ route('admin.message.destroy', ['message'=>$message->id]) }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Ya</button>
+                          </form>
+                          
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                @endforeach
+              </tbody>
+            </table>
             <!-- Message -->
-            <form action="">
+            <form action="{{ route('admin.message.store') }}" method="POST">
+              @csrf
               <div class="modal fade" id="pesan" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -82,8 +92,14 @@
                     </div>
                     <div class="modal-body">
                       <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Masukkan Pesan</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                        <label for="message" class="form-label">Catatan Produk</label>
+                        <textarea name="message" class="form-control @error('message') is-invalid @enderror" id="message"
+                          rows="4">{{ old('message') }}</textarea>
+                        @error('message')
+                          <div class="invalid-feedback">
+                            {{ $message }}
+                          </div>
+                        @enderror
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -94,26 +110,6 @@
                 </div>
               </div>
             </form>
-            <!-- Informasi -->
-            <div class="modal fade" id="info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Message</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlTextarea1" class="form-label">Informasi Pesan</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="selamat datang" disabled></textarea>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

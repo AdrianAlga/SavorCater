@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="col-12 text-center">
-          <a href="{{ route('users.edit_profile.index') }}">
+          <a href="{{ route('profile.edit') }}">
             <h4 class="px-3 badge bg-orange ">Edit</h4>
           </a>
         </div>
