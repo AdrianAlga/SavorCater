@@ -221,7 +221,13 @@
             </div>
             <div class="modal-body">
               <div class="container p-0">
+                @php
+                  $total = 0;
+                @endphp
                 @foreach ($carts as $cart)
+                  @php
+                    $total += $cart->product->price * $cart->amount;
+                  @endphp
                   <div class="row border py-3 my-1">
                     <div class="col-4">
                       <div>
@@ -252,7 +258,7 @@
                           <p>Total</p>
                         </div>
                         <div class="col-8 fw-bold">
-                          <p>Rp.120.000</p>
+                          <p>Rp.{{ $total }}</p>
                         </div>
                       </div>
                     </div>

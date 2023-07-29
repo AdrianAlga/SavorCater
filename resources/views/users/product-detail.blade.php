@@ -70,17 +70,18 @@
             <div class="row">
               <div class="col-12 text-center p-0">
                 <div>
-                  <img class="rounded-top-4" src="/images/ayam-pop.jpg" alt="img" height="600px" width="100%" />
+                  <img class="rounded-top-4" src="{{ asset('storage/' . $product->image) }}" alt="img" height="600px"
+                    width="100%" />
                 </div>
               </div>
             </div>
             <form action="">
               <div class="row shadow-sm p-3">
                 <div class="col-12">
-                  <h4 class="fw-bold">Ayam Pop</h4>
+                  <h4 class="fw-bold">{{ $product->name }}</h4>
                 </div>
                 <div class="col-12">
-                  <p class="fw-bold">Rp. 8.000,-</p>
+                  <p class="fw-bold">Rp. {{ $product->price }},-</p>
                 </div>
                 <div class="col-12 text-warning d-flex fs-6">
                   <i class="bi bi-star-fill"></i>
@@ -126,7 +127,7 @@
                               :
                             </th>
                             <th scope="col">
-                              255
+                              {{ $product->stock }}
                             </th>
                           </tr>
                           <tr>
@@ -137,7 +138,7 @@
                               :
                             </th>
                             <th scope="col">
-                              Frozen
+                              {{ $product->product_category }}
                             </th>
                           </tr>
                           <tr>
@@ -148,7 +149,7 @@
                               :
                             </th>
                             <th scope="col">
-                              Risol
+                              {{ $product->food_category }}
                             </th>
                           </tr>
                           <tr>
@@ -159,7 +160,7 @@
                               :
                             </th>
                             <th scope="col">
-                              Rp.50.000
+                              Rp.{{ $product->price }}
                             </th>
                           </tr>
                         </thead>
@@ -173,28 +174,7 @@
               <div class="col-12">
                 <p class="fw-bold fw-bold">Catatan:</p>
                 <p class="txt-rata txt-spasi text-secondary">
-                  Kami menyediakan layanan catering makanan yang berkualitas dan beragam, siap untuk memenuhi kebutuhan
-                  acara Anda. Dari acara formal hingga pesta santai, kami memiliki menu yang dirancang khusus untuk
-                  memuaskan selera setiap tamu Anda.
-                  <br>
-                  Pilihan hidangan kami mencakup berbagai masakan lokal dan internasional yang lezat dan menggugah selera.
-                  Mulai dari hidangan pembuka yang segar dan menggugah selera, hidangan utama dengan daging berkualitas
-                  tinggi dan bahan-bahan segar, hingga hidangan penutup yang manis dan lezat.
-                  <br>
-                  Setiap hidangan kami dipersiapkan dengan penuh perhatian oleh koki kami yang berpengalaman dan ahli
-                  dalam menciptakan cita rasa yang tak terlupakan. Kami juga selalu mengutamakan kebersihan dan keamanan
-                  pangan dalam setiap tahap persiapan makanan.
-                  <br>
-                  Kami menghadirkan pengalaman kuliner yang istimewa bagi tamu Anda dengan mengutamakan kualitas, rasa,
-                  dan presentasi yang menarik. Tidak hanya itu, kami juga dapat menyesuaikan menu sesuai dengan kebutuhan
-                  dan preferensi Anda, termasuk opsi vegetarian, makanan bebas gluten, atau masakan khusus lainnya.
-                  <br>
-                  Tak hanya menawarkan hidangan yang lezat, kami juga memberikan pelayanan yang ramah dan profesional,
-                  siap membantu Anda dalam menyusun rencana catering yang sesuai dengan anggaran dan tema acara Anda.
-                  <br>
-                  Dengan layanan catering makanan kami, Anda dapat bersantai dan menikmati momen spesial bersama tamu-tamu
-                  Anda tanpa harus khawatir tentang makanan. Percayakan kebutuhan catering Anda kepada kami, dan kami akan
-                  memberikan pengalaman kuliner yang tak terlupakan bagi setiap tamu di acara Anda.
+                  {{ $product->description }}
                 </p>
               </div>
             </div>
@@ -219,25 +199,35 @@
             </div>
             <div class="modal-body">
               <div class="container p-0">
-                <div class="row border py-3 my-1">
-                  <div class="col-4">
-                    <div>
-                      <img src="{{ asset('/images/produk1.png') }}" alt="img" height="80px" width="100%" />
+                @php
+                  $total = 0;
+                @endphp
+                @foreach ($carts as $cart)
+                  @php
+                    $total += $cart->product->price * $cart->amount;
+                  @endphp
+                  <div class="row border py-3 my-1">
+                    <div class="col-4">
+                      <div>
+                        <img src="{{ asset('storage/' . $cart->product->image) }}" alt="img" height="80px"
+                          width="100%" />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-8">
-                    <div class="container h-100">
-                      <div class="row align-items-end h-100">
-                        <div class="col-12 txt-merah fw-bold fs-6">
-                          <p>Whiskas 80gr</p>
-                        </div>
-                        <div class="col-12 fw-bold small">
-                          <p>Rp.8.000</p>
+                    <div class="col-8">
+                      <div class="container h-100">
+                        <div class="row align-items-end h-100">
+                          <div class="col-12 txt-merah fw-bold fs-6">
+                            <p>{{ $cart->product->name }}</p>
+                          </div>
+                          <div class="col-12 fw-bold small">
+                            <p>Rp.{{ $cart->product->price }}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                @endforeach
+
               </div>
             </div>
             <div class="modal-footer">
@@ -256,7 +246,9 @@
                     </div>
                   </div>
                   <div class="col-4 text-end">
-                    <button type="button" class="btn btn-sm bg-orange text-white">Check Out</button>
+                    <a href="{{ route('checkout') }}">
+                      <button type="button" class="btn btn-sm bg-orange text-white">Check Out</button>
+                    </a>
                   </div>
                 </div>
               </div>
