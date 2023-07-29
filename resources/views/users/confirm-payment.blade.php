@@ -74,7 +74,7 @@
                       <tr>
                         <td>Jumlah Deposit</td>
                         <td>:</td>
-                        <td>{{ $order->total }}</td>
+                        <td>Rp. {{ number_format($order->total, 0, ',', '.') }}</td>
                       </tr>
                       <tr>
                         <td>Nomor Rekening</td>
@@ -96,7 +96,7 @@
                     <strong>Total Pembayaran</strong>
                   </div>
                   <div class="col-md-6 text-end">
-                    <strong>Rp. {{ $order->total }}</strong>
+                    <strong>Rp. {{ number_format($order->total, 0, ',', '.') }}</strong>
                   </div>
                 </div>
               </div>

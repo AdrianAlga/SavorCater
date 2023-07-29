@@ -35,7 +35,7 @@
                       height="50px" /></td>
                   <td class="col-5">{{ $cart->product->name }}</td>
                   <td class="col-5">{{ $cart->amount }}</td>
-                  <td class="col-3">Rp. {{ $cart->amount * $cart->product->price }}</td>
+                  <td class="col-3" style="white-space: nowrap">Rp. {{ number_format($cart->amount * $cart->product->price, 0, ',', '.') }}</td>
                   <td class="col-1">
                     <form action="{{ route('destroyCart', ['cart' => $cart->id]) }}" method="post">
                       @method('delete')
@@ -53,7 +53,7 @@
             <tfoot>
               <tr>
                 <td class="fw-bold">Total</td>
-                <td colspan="4" class="fw-bold text-end">Rp. {{ $total }}</td>
+                <td colspan="4" class="fw-bold text-end">Rp. {{ number_format($total, 0, ',', '.') }}</td>
               </tr>
             </tfoot>
           </table>

@@ -105,7 +105,7 @@
                                       :
                                     </th>
                                     <th scope="col">
-                                      Rp.{{ $product->price }}
+                                      Rp. {{ number_format($product->price, 0, ',', '.') }}
                                     </th>
                                   </tr>
                                   <tr>
@@ -135,22 +135,24 @@
           <div class="row mt-3 border-top border-2 pt-3 text-center">
             <div class="col-md-4 fw-bold fs-5">
               <span class="px-3">Total Pesanan :</span>
-              <span>Rp.</span><Span>{{ $total }}</Span>
+              <span>Rp. </span><Span>{{ number_format($total, 0, ',', '.') }}</Span>
             </div>
             <div class="col-md-4">
               <span class="fw-bold">Status : </span>
               <span class="badge text-bg-warning text-white">{{ $order->status }}</span>
             </div>
             <div class="col-md-4">
-              <button class="btn btn-sm btn-info" data-bs-toggle="modal"
-                data-bs-target="#pay-modal-{{ $order->id }}">Kirim Bukti
-                Pembayaran</button>
+              @if (!$order->pay_image)
+                <button class="btn btn-sm btn-info" data-bs-toggle="modal"
+                  data-bs-target="#pay-modal-{{ $order->id }}">Kirim Bukti
+                  Pembayaran</button>
+              @endif
             </div>
           </div>
         </div>
       </div>
       {{-- Modal Bukti Pembayaran --}}
-      <form action="{{ route('pay_image', ["order" => $order->id]) }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('pay_image', ['order' => $order->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal fade" id="pay-modal-{{ $order->id }}" tabindex="-1"
           aria-labelledby="pay-modal-{{ $order->id }}Label" aria-hidden="true">

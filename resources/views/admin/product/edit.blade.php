@@ -2,6 +2,13 @@
 
 @push('style')
   <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+  <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+  <style>
+    .trix-button-group--file-tools {
+      display: none !important;
+    }
+  </style>
 @endpush
 
 @section('body')
@@ -104,7 +111,8 @@
                 </div>
                 <div class="mb-3">
                   <label for="description" class="form-label">Catatan Produk</label>
-                  <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="4" >{{ old("description", $product->description) }}</textarea>
+                  <input id="x" type="hidden" name="description" value="{{ old("description", $product->description) }}">
+                  <trix-editor input="x"></trix-editor>
                   @error('description')
                     <div class="invalid-feedback">
                       {{ $message }}
