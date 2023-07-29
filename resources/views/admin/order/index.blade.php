@@ -53,12 +53,37 @@
                           data-bs-target="#deleteModal-{{ $order->id }}">Delete</span></a>
                     </td>
                     <td>
-                      <button class="btn btn-sm bg-warning p-0">
-                        <select class="bg-transparent border-0 no-icon px-3">
-                          <option value="1" selected>padding</option>
-                          <option value="2">Succes</option>
-                        </select>
-                      </button>
+
+                      <div class="dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          {{ $order->status }}
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a class="dropdown-item">
+                              <form action="{{ route('status.update', ['order' => $order->id]) }}" method="post">
+                                @csrf
+                                <input type="hidden" name="status" value="success" class="d-none">
+                                <button type="submit" class="btn d-inline">
+                                  Konfimasi
+                                </button>
+                              </form>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item">
+                              <form action="{{ route('status.update', ['order' => $order->id]) }}" method="post">
+                                @csrf
+                                <input type="hidden" name="status" value="failed" class="d-none">
+                                <button type="submit" class="btn d-inline">
+                                  Tolak
+                                </button>
+                              </form>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     </td>
                   </tr>
                   <!-- Modal -->

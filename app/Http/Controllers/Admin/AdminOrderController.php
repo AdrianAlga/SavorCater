@@ -42,4 +42,12 @@ class AdminOrderController extends Controller
         $order->delete();
         return redirect()->route("admin.order.index")->with('success', "Order Berhasil dihapus");
     }
+
+    public function updateStatus(Request $request, Order $order) {
+        $validated = $request->validate([
+            "status" => "required|in:success,failed",
+        ]);
+        $order->update($validated);
+        return back();
+    }
 }
