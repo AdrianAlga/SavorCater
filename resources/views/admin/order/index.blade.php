@@ -37,6 +37,7 @@
                   <th class="col-md-4">Tanggal Pemesanan</th>
                   <th class="col-md-4">Nama Pemesan</th>
                   <th class="col-md-4">Action</th>
+                  <th class="col-md-4">Comfirm</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,6 +51,14 @@
                           class="badge text-bg-info">Informasi</span></a>
                       <a><span class="badge text-bg-danger" data-bs-toggle="modal"
                           data-bs-target="#deleteModal-{{ $order->id }}">Delete</span></a>
+                    </td>
+                    <td>
+                      <button class="btn btn-sm bg-warning p-0">
+                        <select class="bg-transparent border-0 no-icon px-3">
+                          <option value="1" selected>padding</option>
+                          <option value="2">Succes</option>
+                        </select>
+                      </button>
                     </td>
                   </tr>
                   <!-- Modal -->
