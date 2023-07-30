@@ -49,8 +49,10 @@
                     <td>
                       <a href="{{ route('admin.order.show', ['order' => $order->id]) }}"><span
                           class="badge text-bg-info">Informasi</span></a>
-                      <a><span class="badge text-bg-danger" data-bs-toggle="modal"
-                          data-bs-target="#deleteModal-{{ $order->id }}">Delete</span></a>
+                      <button class="p-0  border-0 bg-transparent">
+                        <span class="badge text-bg-danger" data-bs-toggle="modal"
+                          data-bs-target="#deleteModal-{{ $order->id }}">Delete</span>
+                      </button>
                     </td>
                     <td>
 
