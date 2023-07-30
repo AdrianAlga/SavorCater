@@ -84,7 +84,7 @@
                       <tr>
                         <td>Nama penerima</td>
                         <td>:</td>
-                        <td>{{ $order->name }}</td>
+                        <td>Warung Jawa</td>
                       </tr>
                     </tbody>
                   </table>

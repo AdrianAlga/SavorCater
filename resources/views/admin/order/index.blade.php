@@ -48,7 +48,7 @@
                     <td>{{ $order->name }}</td>
                     <td>
                       <a href="{{ route('admin.order.show', ['order' => $order->id]) }}"><span
-                          class="badge text-bg-info">Informasi</span></a>
+                          class="badge text-white text-bg-info">Informasi</span></a>
                       <button class="p-0  border-0 bg-transparent">
                         <span class="badge text-bg-danger" data-bs-toggle="modal"
                           data-bs-target="#deleteModal-{{ $order->id }}">Delete</span>
@@ -94,7 +94,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="deleteModal-{{ $order->id }}Label">Modal title</h1>
+                          <h1 class="modal-title fs-5" id="deleteModal-{{ $order->id }}Label">Peringatan</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">Apakah anda ingin menghapusnya {{ $order->name }}?</div>
@@ -103,7 +103,7 @@
                           <form action="{{ route('admin.order.destroy', ['order' => $order->id]) }}" method="post">
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-primary">Ya</button>
+                            <button type="submit" class="btn btn-primary px-4">Ya</button>
                           </form>
                         </div>
                       </div>

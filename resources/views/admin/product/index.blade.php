@@ -50,8 +50,8 @@
                     <td>{{ $product->name }}</td>
                     <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
                     <td>
-                      <a href="{{ route('admin.product.show', ["product" => $product->id]) }}"><span class="badge text-bg-info">Informasi</span></a>
-                      <a href="{{ route('admin.product.edit', ["product" => $product->id]) }}"><span class="badge text-bg-warning">Edit Produk</span></a>
+                      <a href="{{ route('admin.product.show', ["product" => $product->id]) }}"><span class="badge text-bg-info text-white">Informasi</span></a>
+                      <a href="{{ route('admin.product.edit', ["product" => $product->id]) }}"><span class="badge text-bg-warning text-white">Edit Produk</span></a>
                       <a href="#"><span class="badge text-bg-danger" data-bs-toggle="modal"
                           data-bs-target="#deleteModal-{{ $product->id }}">Delete</span></a>
                     </td>

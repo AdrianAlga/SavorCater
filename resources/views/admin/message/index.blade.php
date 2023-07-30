@@ -69,7 +69,7 @@
                           <form action="{{ route('admin.message.destroy', ['message'=>$message->id]) }}" method="post">
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-primary">Ya</button>
+                            <button type="submit" class="btn btn-primary px-4">Ya</button>
                           </form>
                           
                         </div>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="modal-body">
                       <div class="mb-3">
-                        <label for="message" class="form-label">Catatan Produk</label>
+                        <label for="message" class="form-label">Buat Pesan Untuk User</label>
                         <textarea name="message" class="form-control @error('message') is-invalid @enderror" id="message"
                           rows="4">{{ old('message') }}</textarea>
                         @error('message')

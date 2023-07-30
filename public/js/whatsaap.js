@@ -1,6 +1,6 @@
 function openWhatsApp() {
     // Ganti nomor telepon berikut dengan nomor tujuan yang diinginkan
-    var phoneNumber = "6285251754701";
+    var phoneNumber = "628889187858";
 
     // Ganti pesan berikut dengan pesan yang ingin Anda kirimkan
     var message = "Halo! Saya tertarik dengan layanan catering Anda.";

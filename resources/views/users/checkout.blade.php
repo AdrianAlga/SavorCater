@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div class="col-12">
-                <div class="row pb-5">
+                <div class="row pb-3">
                   <button type="submit" class="btn btn-info fw-bold text-white">Checkout</button>
                 </div>
               </div>
