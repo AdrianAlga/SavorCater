@@ -174,7 +174,7 @@
               <div class="col-12">
                 <p class="fw-bold fw-bold">Catatan:</p>
                 <p class="txt-rata txt-spasi text-secondary">
-                  {{ $product->description }}
+                  {!!$product->description!!}
                 </p>
               </div>
             </div>

@@ -33,6 +33,7 @@
               </button>
             </div>
           </div>
+          <!-- Navbar Produck Category -->
           <div class="row shadow-sm mx-4 rounded-3 mb-3">
             <div class="col-6 text-center px-0">
               <button class="rounded-3 h-100 w-100 py-3 border-0 product-category-button bg-orange">
@@ -47,6 +48,7 @@
               </button>
             </div>
           </div>
+          
           <div class="row">
             <div class="col-12">
               <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -72,17 +74,19 @@
               </div>
             </div>
           </div>
+
+          <!-- Navbar Catering  -->
           <div class="food-category-list ">
             <div class="row text-center font-txt text-white" style="font-size: 13px">
               <div class="col-6 my-3 px-1 ">
-                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button catering-category-button bg-orange">
+                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button catering-category-button bg-orange" style="cursor: pointer">
                   <img src="{{ asset('/images/chicken-leg.png') }}" alt="img" height="25px" />
                   <span class="text-abu">Ayam</span>
                 </div>
                 </a>
               </div>
               <div class="col-6 my-3 px-1">
-                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button catering-category-button">
+                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button catering-category-button" style="cursor: pointer">
                   <img src="{{ asset('/images/steak.png') }}" alt="img" height="25px" />
                   <span class="txt-abu">Sapi</span>
                 </div>
@@ -90,16 +94,18 @@
               </div>
             </div>
           </div>
+
+          <!-- Navbar Frozen -->
           <div class="food-category-list hide-content">
             <div class="row text-center font-txt text-white" style="font-size: 13px">
               <div class="col-6 my-3 px-1">
-                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button frozen-category-button bg-orange">
+                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button frozen-category-button bg-orange" style="cursor: pointer">
                   <img src="{{ asset('/images/risol.png') }}" alt="img" height="25px" />
                   <span class="text-abu">Risol</span>
                 </div>
               </div>
               <div class="col-6 my-3 px-1">
-                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button frozen-category-button">
+                <div class="bg-white shadow-sm py-2 rounded-3 food-category-button frozen-category-button" style="cursor: pointer">
                   <img src="{{ asset('/images/sosis.png') }}" alt="img" height="25px" />
                   <span class="txt-abu">Sosis</span>
                 </div>
